@@ -9,10 +9,9 @@ object Staircase extends App {
 
   val size = io.Source.stdin.getLines().next().toInt
 
-  val template = (1 to size).map(_ => "#")
-  val res: Seq[Seq[String]] = for {
-    i <- 0 to size
-  } yield template.drop((size - 1) - i)
+  val template: Seq[String] = (1 to size).map(_ => "#")
+
+  val res: Seq[Seq[String]] = (0 to size).map(i => template.drop((size-1) - i))
 
   (0 until size).foreach(e => println(res(e).padTo(size, " ").reverse.mkString))
 }
