@@ -21,18 +21,31 @@ object UtopianTree extends App {
 //  }
 
   def growUtopianTree(n: Int): Long = {
-    var doubleSize = true
-    var size = 1
+    var size: Long = 1
     (0 until n).foreach { n =>
-      if (doubleSize) size *= 2 else size += 1
-      doubleSize = !doubleSize
+      if (n%2==0) size *= 2 else size += 1
     }
 
     size
   }
 
-  val lines = io.Source.stdin.getLines()
-  val n = lines.next().toInt
-  lines.map(e => growUtopianTree(e.toInt)).foreach(println)
+  def growUtopianTreeRec(n: Int): Long = {
+    var growth: Long = 0;
+    if(n == 0)
+      return 1
+    else if (n % 2 == 1)
+      growth = growth + (2 * growUtopianTreeRec(n - 1));
+    else
+      growth = growth + (1 + growUtopianTreeRec(n - 1));
+
+    growth;
+  }
+
+  println(growUtopianTree(10000))
+  println(growUtopianTreeRec(10000))
+
+//  val lines = io.Source.stdin.getLines()
+//  val n = lines.next().toInt
+//  lines.map(e => growUtopianTree(e.toInt)).foreach(println)
 
 }
