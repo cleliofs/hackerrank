@@ -9,7 +9,7 @@ object Pangrams extends App {
     ('a' to 'z').forall(l => s.contains(l))
   }
 
-  val line = io.Source.stdin.getLines().next().toLowerCase()
+  val line = io.Source.stdin.getLines().next().toLowerCase
   println(isPangram(line) match {
     case true => "pangram"
     case false => "not pangram"

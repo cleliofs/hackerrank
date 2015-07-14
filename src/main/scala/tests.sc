@@ -9,3 +9,11 @@ line match {
 
 val s = "1000000001 1000000002 1000000003 1000000004 1000000005"
 s.split(" ").map(_.toLong).sum
+
+val n = "4294967294".toLong.toBinaryString
+
+val b = "1111111111111111111111111111110"
+Integer.parseInt(b, 2)
+
+val h = 0x801002
+Integer.parseInt("000000001111", 2)
